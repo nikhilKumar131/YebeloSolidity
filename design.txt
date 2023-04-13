@@ -1,0 +1,36 @@
+Yebelo Solidity Developer Assignment
+DESIGN PAPER
+
+GOAL:
+to write a smart contract that store token in slabs and shifts slab when limit is breached.
+
+
+ (CREATING A ERC20 TOKEN)
+	first we created a erc20 token to integrate with main contract using openzeppline
+	
+ (adding TOKEN to main contract)
+	we initialze he token in the constructor
+	
+ (CREATING SLABS)
+	options:
+	- Using uint for each slab.
+	- creating struct and packing slabs in it.
+	- enum and mapping
+	chosen:
+	-Using uint for each slab because it is cheapest considering gas requirements.
+	
+	Note: could not pack varible for gas optimization(uint64) because ERC token is uint256;
+	
+ (updating SLABS)
+	-first check if balance is added or not since we updated last time
+	-if yes, update balance
+	-now you can check your updated balance.
+	
+	Note: used labs are not updated back to zero, as they are not visible anyways and 
+	would cost gas, but updated the new slab uint value as it was mentioned in assignment.
+	
+
+TEST:
+	-simple contract, so test was writted in SOLIDITY, uint remix IDE.
+	
+

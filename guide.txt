@@ -1,0 +1,22 @@
+Yebelo Solidity Developer Assignment
+
+Functions:
+	- updateSlab
+	- CheckSlab
+	
+updateSlab:
+	- is a public function;
+	- checks if tokenBalance is updated since the last time we checked.
+	
+		- if tokenBalance is same, no need for update
+		- if tokenBalance is changed
+			-set new lastBalance
+			-call INTERNAL FUNTIONS SETSLAB
+		- setSlab():
+			-checks the token balance
+			-set the CURRENTSLAB variable
+		
+	- Now, you can check the updated slab using checkSlab
+	
+checkSlab:
+	-returns currentSlab variable.
