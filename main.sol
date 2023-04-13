@@ -6,6 +6,10 @@ import "./erc20.sol";
 contract main{
     token Token;
 
+    constructor(address _addr){
+        Token = token(_addr);
+    }
+    
 //each slab is a uint
 //here we are packing the variables.
 //uint8 and uint32 actually increases the gas.
@@ -20,7 +24,13 @@ contract main{
 
 
     function checkSlab() public returns(  string memory ){
-        return currentSlab;
+        if(Token.balanceOf(address(this)) == lastBalance){
+            return currentSlab;
+        }
+        else{
+            setSlab();
+            return currentSlab;
+        }
     }
 
     function setSlab() internal {
