@@ -19,19 +19,23 @@ contract main{
     uint64 slab3;
     uint64 slab4;
     uint64 lastBalance = 0;
-    string currentSlab;
+    string  currentSlab = "slab0";
     
 
 
-    function checkSlab() public returns(  string memory ){
-        if(Token.balanceOf(address(this)) == lastBalance){
-            return currentSlab;
-        }
-        else{
+    function checkSlab() public view returns(string memory){
+        return currentSlab;
+    }
+
+    function updateSlab() public {
+
+       if(Token.balanceOf(address(this)) != lastBalance){
+            lastBalance = Token.balanceOf(address(this));
             setSlab();
-            return currentSlab;
+            
         }
     }
+
 
     function setSlab() internal {
         uint _lastBalance = lastBalance;
